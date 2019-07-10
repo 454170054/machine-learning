@@ -1,0 +1,25 @@
+##随机切分训练集和测试集
+from sklearn.model_selection import train_test_split
+x_train,x_test,y_train,y_test = train_test_split(iris_dataset['data'],iris_dataset['target']
+                                                   ,random_state=0)
+
+##画散点图矩阵
+data为dataframe结构
+picture = pd.plotting.scatter_matrix(data, c=y_train, figsize=(15, 15), marker='o',
+                        hist_kwds={'bins': 20}, s=60, alpha=.8, cmap=mglearn.cm3)
+
+X_train,X_test, y_train, y_test =sklearn.train_test_split(train_data,train_target,test_size=0.4,
+                                                          random_state=0,stratify=y_train)
+##train_data：所要划分的样本特征集
+# train_target：所要划分的样本结果
+# test_size：样本占比，如果是整数的话就是样本的数量
+# random_state：是随机数的种子。
+# 随机数种子：其实就是该组随机数的编号，在需要重复试验的时候，保证得到一组一样的随机数。比如你每次都填1，其他参数一样的情况下你得到的随机数组是一样的。但填0或不填，每次都会不一样。
+stratify是为了保持split前类的分布。比如有100个数据，80个属于A类，20个属于B类。如果train_test_split(... test_size=0.25, stratify = y_all), 那么split之后数据如下：
+training: 75个数据，其中60个属于A类，15个属于B类。
+testing: 25个数据，其中20个属于A类，5个属于B类。
+用了stratify参数，training集和testing集的类的比例是 A：B= 4：1，等同于split前的比例（80：20）。通常在这种类分布不平衡的情况下会用到stratify。
+将stratify=X就是按照X中的比例分配
+将stratify=y就是按照y中的比例分配
+
+

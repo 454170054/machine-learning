@@ -1,0 +1,14 @@
+##切分数据集
+from sklearn.model_selection import train_test_split
+x_train,x_test,y_train,y_test = train_test_split(iris_dataset['data'],iris_dataset['target']
+                                                   ,random_state=0)
+x_train,y_train,x_test,y_test = train_test_split(data["特征",data["结果"],random_state=0)
+##导入KNN算法
+from sklearn.neighbors import KNeighborsClassifier
+##指定对比邻居个数
+knn = KNeighborsClassifier(n_neighbors=1)
+knn.fit(x_train,y_train)
+##预测or分类
+prediction = knn.predict(test_data)
+##准确率
+print("模型准确率：{:.2f}".format(knn.score(x_test,y_test))
