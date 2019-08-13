@@ -31,10 +31,10 @@ def grey_values():
     return hmeans,labels
 
 x,y = grey_values()
-# x_train,x_test,y_train,y_test = train_test_split(x,y,random_state=1)
+x_train,x_test,y_train,y_test = train_test_split(x,y,random_state=1)
 clf = LinearSVC(C=10)
-score = cross_val_score(clf,x,y,cv=10)
-# joblib.dump(clf, "train_model.m")
+model = clf.fit(x_train,y_train)
+joblib.dump(clf, "train_model.m")
 
 
 
